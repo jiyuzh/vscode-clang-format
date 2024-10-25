@@ -104,11 +104,20 @@
           ],
           "uniqueItems": true
         },
-        "clang-format.assumeFilename": {
-          "order": 99,
+        "clang-format.assumeFilename.default": {
+          "order": 98,
           "type": "string",
           "default": "",
           "description": "When reading from stdin, clang-format assumes this filename to look for a style config file (with -style=file) and to determine the language.\nThe default value is the current filename being formated."
+        },
+        "clang-format.assumeFilename.languages": {
+          "order": 99,
+          "type": "object",
+          "default": {},
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Object with the key as LanguageId and value as the assumeFilename."
         },
         "clang-format.additionalArguments": {
           "order": 100,
