@@ -2,7 +2,7 @@
   "name": "clang-format-2",
   "displayName": "New-clang-format",
   "description": "Use Clang-Format in Visual Studio Code",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "publisher": "Something-Software",
   "engines": {
     "vscode": "^1.15.0"
