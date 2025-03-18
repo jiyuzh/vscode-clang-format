@@ -123,7 +123,7 @@
         "clang-format-renew.additionalArguments": {
           "order": 100,
           "type": "string",
-          "default": "",
+          "default": "-Wno-error=unknown",
           "description": "Additional arguments to pass to clang-format"
         }
       }

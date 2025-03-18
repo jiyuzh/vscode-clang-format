@@ -349,7 +349,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
             outputChannel.show();
             outputChannel.clear();
             outputChannel.appendLine(stderr);
-            return reject('Cannot format due to syntax errors.');
+            // return reject('Cannot format due to syntax errors.');
           }
 
           if (code != 0) {
