@@ -5,7 +5,7 @@ import fs = require('fs');
 import { getBinPath } from './clangPath';
 import sax = require('sax');
 
-export let outputChannel = vscode.window.createOutputChannel('Clang-Format');
+export let outputChannel = vscode.window.createOutputChannel('clang-format-renew');
 
 function getPlatformString() {
   switch (process.platform) {
@@ -134,11 +134,11 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
     });
   }
 
-  /// Get execute name in clang-format.executable, if not found, use default value
+  /// Get execute name in clang-format-renew.executable, if not found, use default value
   /// If configure has changed, it will get the new value
   private getExecutablePath() {
     const platform = getPlatformString();
-    const config = vscode.workspace.getConfiguration('clang-format');
+    const config = vscode.workspace.getConfiguration('clang-format-renew');
     const ExecPath = config.get<object>('executable');
     let execPath = ExecPath[platform];
 
@@ -167,7 +167,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
   }
 
   private getStyle(document: vscode.TextDocument) {
-    const config = vscode.workspace.getConfiguration('clang-format');
+    const config = vscode.workspace.getConfiguration('clang-format-renew');
     const styleLangs = config.get<string>('style.languages');
     let ret = styleLangs[this.getLanguage(document)];
 
@@ -190,7 +190,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
   }
 
   private getFallbackStyle(document: vscode.TextDocument) {
-    const config = vscode.workspace.getConfiguration('clang-format');
+    const config = vscode.workspace.getConfiguration('clang-format-renew');
     const fallbackStyleLangs = config.get<object>('fallbackStyle.languages');
     let strConf = fallbackStyleLangs[this.getLanguage(document)];
 
@@ -237,7 +237,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
   }
 
   private getAssumedFilename(document: vscode.TextDocument) {
-    const config = vscode.workspace.getConfiguration('clang-format');
+    const config = vscode.workspace.getConfiguration('clang-format-renew');
     const assumedFilename = config.get<object>('assumeFilename.languages');
     let ret = assumedFilename[this.getLanguage(document)];
 
@@ -283,7 +283,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
 
   private doFormatDocument(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]> {
     return new Promise((resolve, reject) => {
-      const config = vscode.workspace.getConfiguration('clang-format');
+      const config = vscode.workspace.getConfiguration('clang-format-renew');
       const style = this.getStyle(document);
       const fallbackStyle = this.getFallbackStyle(document);
       const assumedFilename = this.getAssumedFilename(document);
@@ -292,13 +292,13 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
       const additionalArgs = config.get<string>('additionalArguments');
 
       if (style.substring(0, 5) == "file:" && checkFileExists(style.substring(5)) === false) {
-        vscode.window.showErrorMessage('The \'' + style + '\' style file is not available.  Please check your clang-format.style user setting and ensure it is installed.');
+        vscode.window.showErrorMessage('The \'' + style + '\' style file is not available. Please check your clang-format-renew.style user setting and ensure it is installed.');
         return resolve(null);
       }
 
       if (fallbackStyle.substring(0, 5) == "file:" &&
         checkFileExists(fallbackStyle.substring(5)) === false) {
-        vscode.window.showErrorMessage('The \'' + fallbackStyle + '\' fallback style file is not available.  Please check your clang-format.fallbackStyle user setting and ensure it is installed.');
+        vscode.window.showErrorMessage('The \'' + fallbackStyle + '\' fallback style file is not available. Please check your clang-format-renew.fallbackStyle user setting and ensure it is installed.');
         return resolve(null);
       }
 
@@ -338,7 +338,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
       child.stderr.on('data', chunk => stderr += chunk);
       child.on('error', err => {
         if (err && (<any>err).code === 'ENOENT') {
-          vscode.window.showInformationMessage('The \'' + formatCommandBinPath + '\' command is not available.  Please check your clang-format.executable user setting and ensure it is installed.');
+          vscode.window.showInformationMessage('The \'' + formatCommandBinPath + '\' command is not available. Please check your clang-format-renew.executable user setting and ensure it is installed.');
           return resolve(null);
         }
         return reject(err);
@@ -378,7 +378,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
 
 export function activate(ctx: vscode.ExtensionContext): void {
 
-  const config = vscode.workspace.getConfiguration('clang-format');
+  const config = vscode.workspace.getConfiguration('clang-format-renew');
   const formatter = new ClangDocumentFormattingEditProvider();
   const availableLanguages = vscode.languages.getLanguages();
   const enabledLangs = config.get<string[]>('enabledLanguageIds');

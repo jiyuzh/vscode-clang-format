@@ -1,5 +1,5 @@
 {
-	"name": "clang-format",
+	"name": "clang-format-renew",
 	"dependencies": {},
 	"exclude": [
 		"typings/browser",

@@ -1,6 +1,6 @@
 {
-  "name": "clang-format-2",
-  "displayName": "New-clang-format",
+  "name": "clang-format-renew",
+  "displayName": "clang-format-renew",
   "description": "Use Clang-Format in Visual Studio Code",
   "version": "1.9.4",
   "publisher": "Something-Software",
@@ -33,9 +33,9 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Clang-Format configuration",
+      "title": "clang-format-renew",
       "properties": {
-        "clang-format.executable": {
+        "clang-format-renew.executable": {
           "additionalProperties": false,
           "order": 1,
           "type": "object",
@@ -59,21 +59,21 @@
           },
           "description": "clang-format executable path"
         },
-        "clang-format.style.default": {
+        "clang-format-renew.style.default": {
           "order": 2,
           "type": "string",
           "title": "Style",
           "default": "LLVM",
           "description": "clang-format style.\n(-style=value, value can be file, LLVM, Google, Chromium, Mozilla, WebKit or json configure)"
         },
-        "clang-format.fallbackStyle.default": {
+        "clang-format-renew.fallbackStyle.default": {
           "order": 3,
           "type": "string",
           "title": "Fallback Style",
           "default": "",
           "description": "clang-format fallback style.\n(-fallback-style=value, value can be none, LLVM, Google, Chromium, Mozilla, WebKit)"
         },
-        "clang-format.style.languages": {
+        "clang-format-renew.style.languages": {
           "order": 6,
           "type": "object",
           "default": {},
@@ -82,7 +82,7 @@
           },
           "description": "Object with the key as LanguageId and value as a clang-format style."
         },
-        "clang-format.fallbackStyle.languages": {
+        "clang-format-renew.fallbackStyle.languages": {
           "order": 7,
           "type": "object",
           "default": {},
@@ -91,7 +91,7 @@
           },
           "description": "Object with the key as LanguageId and value as a clang-format fallback style."
         },
-        "clang-format.enabledLanguageIds": {
+        "clang-format-renew.enabledLanguageIds": {
           "order": 4,
           "description": "Specify a list of languageIds to format.",
           "title": "Enabled Language Ids",
@@ -104,13 +104,13 @@
           ],
           "uniqueItems": true
         },
-        "clang-format.assumeFilename.default": {
+        "clang-format-renew.assumeFilename.default": {
           "order": 98,
           "type": "string",
           "default": "",
           "description": "When reading from stdin, clang-format assumes this filename to look for a style config file (with -style=file) and to determine the language.\nThe default value is the current filename being formated."
         },
-        "clang-format.assumeFilename.languages": {
+        "clang-format-renew.assumeFilename.languages": {
           "order": 99,
           "type": "object",
           "default": {},
@@ -119,7 +119,7 @@
           },
           "description": "Object with the key as LanguageId and value as the assumeFilename."
         },
-        "clang-format.additionalArguments": {
+        "clang-format-renew.additionalArguments": {
           "order": 100,
           "type": "string",
           "default": "",
