@@ -5,14 +5,14 @@
   "version": "1.9.4",
   "publisher": "Something-Software",
   "engines": {
-    "vscode": "^1.15.0"
+    "vscode": "^1.98.2"
   },
   "galleryBanner": {
     "color": "#005577",
     "theme": "dark"
   },
   "dependencies": {
-    "sax": "^1.2.4"
+    "sax": "^1.4.1"
   },
   "categories": [
     "Formatters"
@@ -130,16 +130,14 @@
   },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "compile": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/node": "^13.7.0",
-    "@types/sax": "^1.2.1",
-    "typescript": "^3.7.5",
-    "vsce": "^2.14.0",
-    "vscode": "^1.1.37",
-    "@vscode/vsce": "^3.0.0"
+    "@types/node": "^22.13.10",
+    "@types/sax": "^1.2.7",
+    "@types/vscode": "^1.98.0",
+    "@vscode/vsce": "^3.3.0",
+    "typescript": "^5.8.2"
   },
   "icon": "clang-format.png",
   "repository": {
