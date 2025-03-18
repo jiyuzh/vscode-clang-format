@@ -63,14 +63,14 @@
           "order": 2,
           "type": "string",
           "title": "Style",
-          "default": "LLVM",
+          "default": "file",
           "description": "clang-format style.\n(-style=value, value can be file, LLVM, Google, Chromium, Mozilla, WebKit or json configure)"
         },
         "clang-format-renew.fallbackStyle.default": {
           "order": 3,
           "type": "string",
           "title": "Fallback Style",
-          "default": "",
+          "default": "LLVM",
           "description": "clang-format fallback style.\n(-fallback-style=value, value can be none, LLVM, Google, Chromium, Mozilla, WebKit)"
         },
         "clang-format-renew.style.languages": {
@@ -100,7 +100,8 @@
             "type": "string"
           },
           "default": [
-            "c"
+            "c",
+            "cpp"
           ],
           "uniqueItems": true
         },

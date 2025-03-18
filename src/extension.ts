@@ -29,7 +29,7 @@ export class ClangDocumentFormattingEditProvider implements vscode.DocumentForma
   private defaultConfigure = {
     executable: 'clang-format',
     style: 'file',
-    fallbackStyle: 'file',
+    fallbackStyle: 'LLVM',
     assumeFilename: ''
   };
 
